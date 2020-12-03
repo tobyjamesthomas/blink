@@ -1,15 +1,9 @@
-links = document.getElementsByTagName('a');
-buttons = document.getElementsByTagName('button');
-inputs = document.getElementsByTagName('input');
+links = Array.from(document.getElementsByTagName('a'));
+buttons = Array.from(document.getElementsByTagName('button'));
+inputs = Array.from(document.getElementsByTagName('input'));
 
-for ( let link of links ) {
-  link.classList.add('blink');
-}
+blinks = links.concat( buttons, inputs );
 
-for ( let button of buttons ) {
-  button.classList.add('blink');
-}
-
-for ( let input of inputs ) {
-  input.classList.add('blink');
+for ( var i = 0; i < blinks.length; i += 1 ) {
+  blinks[i].style.animation = 'blinking ' + i + 'ms infinite both';
 }
